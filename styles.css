@@ -1,0 +1,425 @@
+:root {
+  --paper: #f3f6fb;
+  --ink: #142033;
+  --muted: #3a4a5e;
+  --line: #d5dfed;
+  --card: #ffffff;
+  --blue: #1850c8;
+  --blue-ink: #1346b0;
+  --blue-deep: #123f9e;
+  --soft: #e7eefb;
+  --serif: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, "Noto Serif", "Liberation Serif", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Liberation Sans", sans-serif;
+  --header: 4.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--blue);
+  color: #fff;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 20;
+  transform: translateY(-200%);
+  background: #fff;
+  color: var(--ink);
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.skip:focus {
+  transform: none;
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.wrap {
+  width: min(40rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+  .topbar {
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  min-height: var(--header);
+  padding-block: 0.45rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 48px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.brand span {
+  white-space: nowrap;
+}
+
+.spark {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--blue);
+  flex: 0 0 auto;
+}
+
+.hero-spark {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0 0 0.85rem;
+  color: var(--blue);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.7rem 1.35rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font: 700 1.0625rem/1 var(--sans);
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--blue-deep);
+  color: #fff;
+}
+
+.button:focus-visible,
+.brand:focus-visible,
+.site-footer a:focus-visible,
+.principles a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.brand:focus-visible {
+  border-radius: 8px;
+}
+
+main {
+  padding-top: 1.75rem;
+  scroll-margin-top: calc(var(--header) + 0.5rem);
+}
+
+main :is(h1, h2, h3) {
+  scroll-margin-top: calc(var(--header) + 0.75rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+  color: var(--blue-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+.benefits {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.15rem, 6vw, 3.35rem);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0.85rem 0 0;
+}
+
+.lede {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
+.advisory {
+  color: var(--muted);
+}
+
+.benefits {
+  margin-top: 0.7rem;
+  font-size: 1.28rem;
+  line-height: 1.35;
+}
+
+.actions {
+  margin-top: 1.25rem;
+}
+
+.hero .button,
+.cta .button {
+  width: 100%;
+}
+
+.fine {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+main > section + section {
+  margin-top: 3.25rem;
+}
+
+.review {
+  margin-top: 1rem;
+  padding: 1.2rem 1.2rem 1.3rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(20, 32, 51, 0.04), 0 10px 28px rgba(20, 32, 51, 0.04);
+}
+
+.review h3 {
+  margin: 1.15rem 0 0.25rem;
+  color: var(--blue-ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.review h3:first-child {
+  margin-top: 0;
+}
+
+.review p {
+  margin: 0;
+}
+
+.review blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.review blockquote p {
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  line-height: 1.45;
+}
+
+.does {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.does li {
+  position: relative;
+  padding: 0.9rem 1rem 0.9rem 2.55rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.does li::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.15rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  background: var(--blue);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+}
+
+.cta {
+  padding: 1.4rem 1.25rem 1.5rem;
+  background: var(--blue-deep);
+  color: #fff;
+  border-radius: 18px;
+}
+
+.cta h2,
+.cta p {
+  color: #fff;
+}
+
+.button-inverse {
+  background: #fff;
+  color: var(--blue-ink);
+}
+
+.button-inverse:hover {
+  background: var(--soft);
+  color: var(--blue-deep);
+}
+
+.cta .button:focus-visible {
+  outline-color: #fff;
+}
+
+.principles a,
+.site-footer a {
+  color: var(--blue-ink);
+  text-underline-offset: 0.18em;
+}
+
+.principles a:hover,
+.site-footer a:hover {
+  color: var(--blue-deep);
+}
+
+.site-footer {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--line);
+  padding: 1.2rem 0 2.75rem;
+}
+
+.site-footer p {
+  margin: 0.35rem 0 0;
+}
+
+.site-footer p:first-child {
+  margin-top: 0;
+}
+
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 22.5rem) {
+  .top .button {
+    flex: 1 1 100%;
+  }
+}
+
+@media (min-width: 36rem) {
+  .hero .button,
+  .cta .button {
+    width: auto;
+    min-width: 12.5rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .wrap {
+    width: min(40rem, calc(100% - 3rem));
+  }
+
+  main {
+    padding-top: 2.5rem;
+  }
+
+  .hero-spark {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .topbar {
+    background: var(--paper);
+    backdrop-filter: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .button {
+    border-color: ButtonText;
+  }
+
+  .does li::before {
+    background: ButtonText;
+  }
+}
+
+@media print {
+  .topbar {
+    position: static;
+  }
+
+  .button::after {
+    content: " (" attr(href) ")";
+    font-weight: 400;
+  }
+}
